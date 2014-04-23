@@ -1,19 +1,27 @@
 priority: 640
 help: IPv6 Open Shortest Path First protocol (OSPFv3) parameters
 begin: if [ "$COMMIT_ACTION" != DELETE ]; then
+         pidfile="/var/run/quagga-$VAR(../../@)/ospf6d.pid"
+         if [ ! -e "$pidfile" ] || ! kill -0 $(cat "$pidfile") >&/dev/null ; then
+           sudo /sbin/ip netns exec $VAR(../../@) \
+                /usr/sbin/ospf6d -d -P 0 -i "$pidfile" \
+                -f /etc/quagga-$VAR(../../@)/ospf6d.conf \
+                -x /var/run/quagga-$VAR(../../@)/ospf6d.vty \
+                -z /var/run/quagga-$VAR(../../@)/zserv.api
+         fi
          if [ -n "$VAR(parameters/router-id/@)" ]; then
-           sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../@) \
-		 -c "configure terminal" -c "router ospf6" \
+           vtysh -x /var/run/quagga-$VAR(../../@) \
+                 -c "configure terminal" -c "router ospf6" \
                  -c "router-id $VAR(parameters/router-id/@)"
          else
-           sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../@) \
-		 -c "configure terminal" -c "router ospf6" \
+           vtysh -x /var/run/quagga-$VAR(../../@) \
+                 -c "configure terminal" -c "router ospf6" \
                  -c "no router-id"
          fi
        fi
 end: if [ "$COMMIT_ACTION" == DELETE ]; then
-       sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../@) \
-	 -c "configure terminal" -c "router ospf6" -c "no router-id"
-       sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../@) \
-	 -c "configure terminal" -c "no router ospf6"
+       vtysh -x /var/run/quagga-$VAR(../../@) \
+             -c "configure terminal" -c "router ospf6" -c "no router-id"
+       vtysh -x /var/run/quagga-$VAR(../../@) \
+             -c "configure terminal" -c "no router ospf6"
      fi

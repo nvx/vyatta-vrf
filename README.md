@@ -117,3 +117,7 @@ TODO
 ----
 
 + Add veth to Interface.pm
++ Make vrf policies update with main policy set (making use of xvyatta-multi-vtysh.pl say)
++ bgpd
++ Allowing raw ethN interfaces to be passed into a vrf (a quick test seems to indicate this should be possible)
++ Other virtual interfaces in vrfs

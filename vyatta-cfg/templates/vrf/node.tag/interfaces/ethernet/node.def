@@ -16,7 +16,7 @@ syntax:expression: exec \
 begin: rm -f /tmp/speed-duplex.$VAR(@)
        if [ -d "/sys/class/net/$VAR(@)" ]; then
            if [ -n "$VAR(mac/@)" ]; then
-		opt/vyatta/sbin/vyatta-interfaces.pl --dev $VAR(@) \
+		/opt/vyatta/sbin/vyatta-interfaces.pl --dev $VAR(@) \
                  --set-mac "$VAR(mac/@)"
            else 
 		/opt/vyatta/sbin/vyatta-interfaces.pl --dev $VAR(@) \

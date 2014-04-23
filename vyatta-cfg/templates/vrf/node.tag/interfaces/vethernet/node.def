@@ -2,10 +2,8 @@ tag:
 priority: 319
 type: txt
 help: Virtual ethernet pair interface
-allowed: sudo /sbin/ip netns exec $VAR(../../@) \
-	/opt/vyatta/sbin/vyatta-interfaces.pl --show=veth
 val_help: <vethNx>; Virtual ethernet interface name
-syntax:expression: pattern $VAR(@) "^veth[0-9]+.$" \
+syntax:expression: pattern $VAR(@) "^veth[0-9]+(a|b)$" \
 			; "interface vethernet $VAR(@): not a valid name"
 
 

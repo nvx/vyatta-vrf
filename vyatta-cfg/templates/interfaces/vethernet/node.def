@@ -2,9 +2,9 @@ tag:
 priority: 318
 type: txt
 help: Virtual ethernet interface pair
-allowed: /opt/vyatta/sbin/vyatta-interfaces.pl --show=veth
-val_help: <ethN>; Ethernet interface name
-syntax:expression: pattern $VAR(@) "^veth[0-9]+.$" \
+allowed: /opt/vyatta/sbin/vyatta-interfaces.pl --show=vethernet
+val_help: <vethN(a|b)>; Ethernet interface name
+syntax:expression: pattern $VAR(@) "^veth[0-9]+(a|b)$" \
 		   ; "interface ethernet $VAR(@): not a valid name"
 
 syntax:expression: exec \

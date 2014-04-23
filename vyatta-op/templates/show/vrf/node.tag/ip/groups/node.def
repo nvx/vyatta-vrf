@@ -1,2 +1,2 @@
 help: Show IP multicast group membership
-run: netstat -gn4
+run: sudo /sbin/ip netns exec $3 netstat -gn4
