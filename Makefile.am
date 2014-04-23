@@ -1,13 +1,11 @@
 cfgdir = $(datadir)/vyatta-cfg
 opdir = $(datadir)/vyatta-op
-sbindir = $(datadir)/sbin
 curverdir = $(sysconfdir)/config-migrate/current
 bin_sudo_usersdir = $(bindir)/sudo-users
 
-vprefix = /opt/vyatta
-vsbindir = $(vprefix)/sbin
+bin_SCRIPTS = bin/xvtyshow.pl
 
-sbin_SCRIPTS =
+sbin_SCRIPTS = sbin/xvyatta-link-detect sbin/xvyatta-multi-vtysh.pl sbin/xvyatta-quagga-config-gen.pl sbin/xvyatta-veth.pl
 
 bin_sudo_users_SCRIPTS =
 

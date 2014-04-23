@@ -1,2 +1,2 @@
-vyatta-cron: file-in-unusual-dir
-vyatta-cron: dir-or-file-in-opt
+vyatta-vrf: file-in-unusual-dir
+vyatta-vrf: dir-or-file-in-opt
