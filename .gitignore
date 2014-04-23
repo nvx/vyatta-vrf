@@ -1,0 +1,13 @@
+/INSTALL
+/Makefile
+/Makefile.in
+/aclocal.m4
+/build-stamp
+/config.*
+/config/
+/configure
+/debian/files
+/debian/vyatta-vrf.debhelper.log
+/debian/vyatta-vrf.substvars
+/debian/vyatta-vrf/
+*~

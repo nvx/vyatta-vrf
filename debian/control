@@ -1,0 +1,17 @@
+Source: vyatta-vrf
+Section: contrib/net
+Priority: extra
+Maintainer: Tiernan Messmer <tiernan.messmer@gmail.com>
+Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 5), autotools-dev, autoconf
+
+Package: vyatta-vrf
+Architecture: all
+Depends: vyatta-cfg-system,
+ vyatta-cfg,
+ vyatta-op,
+ vyatta-quagga,
+ ${misc:Depends}
+Replaces: vyatta-vrf
+Description: Vyatta vrf templates
+ Vyatta vrf templates
