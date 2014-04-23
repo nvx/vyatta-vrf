@@ -1,11 +1,12 @@
 vyatta-vrf
-----------
+==========
 
 This is a fork of https://github.com/upa/vrf-vyatta for use with EdgeOS.
 
 This requires EdgeOS 1.4.0 or newer due to kernel and iproute2 package dependancies.
 
 This also requires installation of a multi vtysh patched quagga.
+
 
 Quagga setup
 ------------
@@ -111,7 +112,8 @@ Configuration exapmle.
 
 vethXa and vethXb are auto generated when _veth-pair vethX_ is defiend.
 
+
 TODO
 ----
 
-* Add veth to Interface.pm
++ Add veth to Interface.pm

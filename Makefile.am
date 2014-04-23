@@ -1,5 +1,6 @@
 cfgdir = $(datadir)/vyatta-cfg
 opdir = $(datadir)/vyatta-op
+sbindir = $(datadir)/sbin
 curverdir = $(sysconfdir)/config-migrate/current
 bin_sudo_usersdir = $(bindir)/sudo-users
 
@@ -20,3 +21,5 @@ install-exec-hook:
 	cd vyatta-cfg; $(cpiop) $(DESTDIR)$(cfgdir)
 	mkdir -p $(DESTDIR)$(opdir)
 	cd vyatta-op; $(cpiop) $(DESTDIR)$(opdir)
+	mkdir -p $(DESTDIR)$(sbindir)
+	cd sbin; $(cpiop) $(DESTDIR)$(sbindir)
