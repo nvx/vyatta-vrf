@@ -5,7 +5,7 @@ syntax:expression: $VAR(../stub/) == "" ; "Must delete stub area type first"
 
 delete: touch /tmp/ospf-area-nssa.$PPID
 end: if [ -f "/tmp/ospf-area-nssa.$PPID" ]; then
-	sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../@) \
+	sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../@) \
           -c "configure terminal" \
           -c "router ospf" -c "no area $VAR(../../@) nssa";
 	rm /tmp/ospf-area-nssa.$PPID;
@@ -23,7 +23,7 @@ end: if [ -f "/tmp/ospf-area-nssa.$PPID" ]; then
         if [ $? -eq 0 ] ; then
            PARM="$PARM no-summary";  
         fi;
-	sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../@) \
+	sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../@) \
           -c "configure terminal" \
           -c "router ospf" -c "area $VAR(../../@) nssa $PARM";
      fi;

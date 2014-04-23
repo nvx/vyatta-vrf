@@ -1,6 +1,6 @@
 help: Redistribute bgp routes
 
-end: sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+end: sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
        -c "configure terminal" \
        -c "router ospf6"                                       \
        -c "no redistribute bgp";
@@ -8,7 +8,7 @@ end: sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
         if [ -n "$VAR(./route-map/@)" ]; then
           COND="route-map $VAR(./route-map/@)";
         fi;
-        sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+        sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
           -c "configure terminal" \
           -c "router ospf6"                                         \
           -c "redistribute bgp $COND";

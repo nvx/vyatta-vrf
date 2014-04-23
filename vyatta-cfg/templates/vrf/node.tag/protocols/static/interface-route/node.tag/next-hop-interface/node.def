@@ -15,7 +15,7 @@ end:
 	${vyatta_sbindir}/vyatta-next-hop-check $VAR(../@) ipv4 interface; then
         exit 1;
       fi
-      sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+      sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		   -c "configure terminal" \
                    -c "no ip route $VAR(../@) $VAR(@)"
     else
@@ -23,12 +23,12 @@ end:
       then
         DIST="$VAR(./distance/@)"
       fi
-      sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+      sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		   -c "configure terminal" \
                    -c "ip route $VAR(../@) $VAR(@) $DIST";
     fi
   else
-      sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+      sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		   -c "configure terminal" \
                    -c "no ip route $VAR(../@) $VAR(@)"
   fi

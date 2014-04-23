@@ -26,12 +26,12 @@ This patch can be applied to only quagga release 0.99.21.
 	 % ./configure --enable-vtysh --disable-ripd --disable-ripngd --disable-babeld --disable-watchquagga --disable-doc
 	 % make
 	 % make install
-	 % /usr/local/sbin/zebra --version
+	 % /usr/sbin/zebra --version
 	 lt-zebra version 0.99.21
 	 Copyright 1996-2005 Kunihiro Ishiguro, et al.
 
 This quagga routing softwares (ospfd, ospf6d, zebra) are installed to 
-/usr/local/sbin, and vtysh is installed to /usr/local/bin directory. 
+/usr/sbin, and vtysh is installed to /usr/local/bin directory. 
 Don't change these prefixes because they are hardcoded into vyatta cli 
 extensions for VRF. Preinstalled quagga softwares are installed to 
 /usr/*bin directories.

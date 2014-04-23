@@ -4,9 +4,9 @@ default: 5
 syntax:expression: $VAR(@) >= 3 && $VAR(@) <= 65535; "Must be between 3-65535"
 val_help: u32: 3-65535; Retransmit interval in seconds (default 5)
 
-update: sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
+update: sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
 	-c "configure terminal" -c "interface $VAR(../../../../@).$VAR(../../../@)" \
 	-c "ip ospf retransmit-interval $VAR(@)"
-delete: sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
+delete: sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
 	-c "configure terminal" -c "interface $VAR(../../../../@).$VAR(../../../@)" \
 	-c "no ip ospf retransmit-interval"

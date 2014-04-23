@@ -2,11 +2,11 @@ multi:
 type: txt
 help: OSPFv3 area interface
 
-create: sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+create: sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 	  -c "configure terminal" -c "router ospf6" \
           -c "interface $VAR(@) area $VAR(../@)"
 
-delete: sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+delete: sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 	   -c "configure terminal" -c "router ospf6" \
            -c "no interface $VAR(@) area $VAR(../@)"
 

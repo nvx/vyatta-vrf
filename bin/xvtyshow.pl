@@ -43,7 +43,7 @@ $p =~ s/ any/ */g;
 
 my $n = "/var/run/quagga-" . $ns;
 
-exec 'sudo', '/usr/local/bin/vtysh', '-x', $n, '-c', $p;
+exec 'sudo', '/usr/bin/vtysh', '-x', $n, '-c', $p;
 die "Could not exec vtysh";
 
 

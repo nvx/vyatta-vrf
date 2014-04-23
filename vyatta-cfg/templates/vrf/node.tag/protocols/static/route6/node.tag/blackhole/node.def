@@ -6,14 +6,14 @@ end: if [ ${COMMIT_ACTION} = 'DELETE' ]; then
         exit 1;
       fi
 
-       sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+       sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 	  -c "configure terminal" \
           -c "no ipv6 route $VAR(../@) null0";
      else
         if [ -n "$VAR(./distance/@)" ]; then
 	   DIST="$VAR(./distance/@)";
         fi;
-        sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+        sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 	  -c "configure terminal" \
           -c "ipv6 route $VAR(../@) null0 $DIST";
      fi;

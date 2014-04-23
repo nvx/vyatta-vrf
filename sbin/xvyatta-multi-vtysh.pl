@@ -20,7 +20,7 @@ my @nslist = `ip netns list`;
 my @vtyshes = ("/usr/bin/vtysh");
 foreach my $ns (@nslist) {
     chomp ($ns);
-    push (@vtyshes, "/usr/local/bin/vtysh -x /var/run/quagga-$ns");
+    push (@vtyshes, "/usr/bin/vtysh -x /var/run/quagga-$ns");
 }
 
 

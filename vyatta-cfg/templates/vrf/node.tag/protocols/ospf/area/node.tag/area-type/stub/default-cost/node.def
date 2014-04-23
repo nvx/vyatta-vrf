@@ -3,18 +3,18 @@ help: Summary-default cost of stub area
 syntax:expression: $VAR(@) >= 0 && $VAR(@) <= 16777215; "Cost must be between 0-16777215"
 val_help: u32:0-16777215; Summary default cost of stub area
 
-create: /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
+create: /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
 	  -c "configure terminal" \
           -c "router ospf"                                        \
           -c "area $VAR(../../../@) stub"                         \
           -c "area $VAR(../../../@) default-cost $VAR(@)";
 
-update: /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
+update: /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
 	  -c "configure terminal" \
           -c "router ospf"                                        \
           -c "area $VAR(../../../@) default-cost $VAR(@)";
 
-delete: /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
+delete: /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
 	  -c "configure terminal" \
           -c "router ospf"                                        \
           -c "no area $VAR(../../../@) default-cost $VAR(@)";

@@ -15,11 +15,11 @@ create: if [ -z $VAR(@) ] ; then
           echo "Error: must include interface";
           exit 1;
      	else  
-          sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
+          sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
              -c "configure terminal" -c "router ospf" \
              -c "no passive-interface $VAR(@)"
 	fi;
 
-delete: sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
+delete: sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
           -c "configure terminal" -c "router ospf" \
           -c "passive-interface $VAR(@)";

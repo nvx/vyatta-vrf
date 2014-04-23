@@ -44,25 +44,25 @@ create:
   sleep 0.5
 
   sudo /sbin/ip netns exec $VAR(@) \
-	/usr/local/sbin/zebra -d -P 0 -i /var/run/quagga-$VAR(@)/zebra.pid \
+	/usr/sbin/zebra -d -P 0 -i /var/run/quagga-$VAR(@)/zebra.pid \
 	-f /etc/quagga-$VAR(@)/zebra.conf \
 	-x /var/run/quagga-$VAR(@)/zebra.vty \
 	-z /var/run/quagga-$VAR(@)/zserv.api
 
   sudo /sbin/ip netns exec $VAR(@) \
-	/usr/local/sbin/ospfd -d -P 0 -i /var/run/quagga-$VAR(@)/ospfd.pid \
+	/usr/sbin/ospfd -d -P 0 -i /var/run/quagga-$VAR(@)/ospfd.pid \
 	-f /etc/quagga-$VAR(@)/ospfd.conf \
 	-x /var/run/quagga-$VAR(@)/ospfd.vty \
 	-z /var/run/quagga-$VAR(@)/zserv.api
 
   sudo /sbin/ip netns exec $VAR(@) \
-	/usr/local/sbin/ospf6d -d -P 0 -i /var/run/quagga-$VAR(@)/ospf6d.pid \
+	/usr/sbin/ospf6d -d -P 0 -i /var/run/quagga-$VAR(@)/ospf6d.pid \
 	-f /etc/quagga-$VAR(@)/ospf6d.conf \
 	-x /var/run/quagga-$VAR(@)/ospf6d.vty \
 	-z /var/run/quagga-$VAR(@)/zserv.api
 
   sudo /sbin/ip netns exec $VAR(@) \
-	/usr/local/sbin/bgpd -d -P 0 -i /var/run/quagga-$VAR(@)/bgpd.pid \
+	/usr/sbin/bgpd -d -P 0 -i /var/run/quagga-$VAR(@)/bgpd.pid \
 	-f /etc/quagga-$VAR(@)/bgpd.conf \
 	-x /var/run/quagga-$VAR(@)/bgpd.vty \
 	-z /var/run/quagga-$VAR(@)/zserv.api

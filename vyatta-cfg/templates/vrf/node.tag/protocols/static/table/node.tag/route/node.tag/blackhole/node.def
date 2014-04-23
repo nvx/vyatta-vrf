@@ -11,7 +11,7 @@ end:
         exit 1;
       fi
 
-      sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
+      sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
 		    -c "configure terminal" \
                     -c "no ip route $VAR(../@) null0 $table";
      else
@@ -19,7 +19,7 @@ end:
          dist="$VAR(./distance/@)";
        fi;
 
-       sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
+       sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../../../@) \
 		    -c "configure terminal" \
                     -c "ip route $VAR(../@) null0 $table $dist";
      fi;

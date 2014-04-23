@@ -5,7 +5,7 @@ syntax:expression: $VAR(@) >= 1 && $VAR(@) <= 4294967; \
        "Must be between 1-4294967"
 val_help: u32:1-4294967; Reference bandwidth cost in Mbits/sec (default 100)
 
-update:expression: "sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+update:expression: "sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
        --noerror \
        -c \"configure terminal\"                       \
        -c \"router ospf\"                              \
@@ -13,7 +13,7 @@ update:expression: "sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../.
        echo 'OSPF: Reference bandwidth is changed.';   \
        echo '      Please ensure reference bandwidth is consistent across all routers'; "
 
-delete:expression: "sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+delete:expression: "sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
        --noerror \
        -c \"configure terminal\"                       \
        -c \"router ospf\"                              \

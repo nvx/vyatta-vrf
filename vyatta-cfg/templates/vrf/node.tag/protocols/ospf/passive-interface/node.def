@@ -12,12 +12,12 @@ create: sudo /opt/vyatta/sbin/vyatta_quagga_utils.pl \
            exit 1;
         fi
         if [ -z $VAR(@) ] || [ "$VAR(@)" == "default" ] ; then
-           sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
+           sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
                  -c "configure terminal" \
                  -c "router ospf"        \
                  -c "passive-interface default";
         else
-           sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
+           sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
                  -c "configure terminal" \
                  -c "router ospf"        \
                  -c "passive-interface $VAR(@)"
@@ -25,7 +25,7 @@ create: sudo /opt/vyatta/sbin/vyatta_quagga_utils.pl \
 
 delete: if [ -z $VAR(@) ]
 	then 
-           sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
+           sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
                  -c "configure terminal" \
                  -c "router ospf"        \
                  -c "no passive-interface default"
@@ -38,7 +38,7 @@ delete: if [ -z $VAR(@) ]
                  exit 1;
               fi
            fi
-           sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
+           sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../@) \
                  -c "configure terminal" \
                  -c "router ospf"        \
                  -c "no passive-interface $VAR(@)"

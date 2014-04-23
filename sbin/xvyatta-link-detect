@@ -24,11 +24,11 @@ set-sysctl () {
 
 case $2 in
 on)	set-sysctl $1 2
-	exec sudo /usr/local/bin/vtysh -x /var/run/quagga-$3 \
+	exec sudo /usr/bin/vtysh -x /var/run/quagga-$3 \
 	    -c "configure terminal" -c "interface $1" \
 	    -c "link-detect" ;;
 off)    set-sysctl $1 1
-	exec sudo /usr/local/bin/vtysh -x /var/run/quagga-$3 \
+	exec sudo /usr/bin/vtysh -x /var/run/quagga-$3 \
 	    -c "interface $1" \
 	    -c "no link-detect" ;;
 *)	usage;;

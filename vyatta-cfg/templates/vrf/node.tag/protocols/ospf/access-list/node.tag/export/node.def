@@ -10,14 +10,14 @@ val_help: rip                Filter rip routes;
 val_help: static             Filter static routes; 
 
 create: 
-	sudo /usr/local/bin/vtysh -x \
+	sudo /usr/bin/vtysh -x \
 		/var/run/quagga/$VAR(../../../../../../@)  \
 	    -c "configure terminal" \
             -c "router ospf"                                      \
             -c "distribute-list $VAR(../@) out $VAR(@)"; 
 
 delete:
-	sudo /usr/local/bin/vtysh -x \
+	sudo /usr/bin/vtysh -x \
 		/var/run/quagga/$VAR(../../../../../../@) \
 	    -c "configure terminal" \
             -c "router ospf"                                      \

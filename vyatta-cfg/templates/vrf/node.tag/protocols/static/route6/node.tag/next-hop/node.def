@@ -17,12 +17,12 @@ end:
 	${vyatta_sbindir}/vyatta-gateway-static_route-check.pl \
           "$VAR(../@)" "$VAR(@)"
       then
-	quagga_conf=`sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+	quagga_conf=`sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 	    -c "show running-config" | \
             grep "^ipv6 route $VAR(../@) $VAR(@)"`
 	ifname=`echo $quagga_conf | awk '{print $5}'`
 
-        sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+        sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		     -c "configure terminal" \
                      -c "no ipv6 route $VAR(../@) $VAR(@) $ifname"
       fi
@@ -37,7 +37,7 @@ end:
         INTERFACE="$VAR(./interface/@)"
       fi
 
-      sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+      sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		   -c "configure terminal" \
                    -c "ipv6 route $VAR(../@) $VAR(@) $INTERFACE $DIST";
     fi
@@ -46,7 +46,7 @@ end:
 	${vyatta_sbindir}/vyatta-gateway-static_route-check.pl \
         "$VAR(../@)" "$VAR(@)"
     then
-      sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+      sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		   -c "configure terminal" \
                    -c "no ipv6 route $VAR(../@) $VAR(@)"
     fi

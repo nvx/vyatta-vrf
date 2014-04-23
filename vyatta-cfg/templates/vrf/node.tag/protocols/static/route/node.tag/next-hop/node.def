@@ -15,7 +15,7 @@ end:
 	${vyatta_sbindir}/vyatta-gateway-static_route-check.pl \
           "$VAR(../@)" "$VAR(@)"
       then 
-        sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+        sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		     -c "configure terminal" \
                      -c "no ip route $VAR(../@) $VAR(@)"
       fi
@@ -24,7 +24,7 @@ end:
       then
 	 	    DIST="$VAR(./distance/@)"
       fi
-	    sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+	    sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		   -c "configure terminal" \
                    -c "ip route $VAR(../@) $VAR(@) $DIST";
     fi
@@ -33,7 +33,7 @@ end:
 	${vyatta_sbindir}/vyatta-gateway-static_route-check.pl \
         "$VAR(../@)" "$VAR(@)"
     then
-      sudo /usr/local/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
+      sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 		   -c "configure terminal" \
                    -c "no ip route $VAR(../@) $VAR(@)"
     fi
