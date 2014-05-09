@@ -1,5 +1,5 @@
 tag:
-priority: 400
+priority: 301
 type: txt
 help: Vritual ethernet interface pair
 allowed: /opt/vyatta/sbin/xvyatta-veth.pl

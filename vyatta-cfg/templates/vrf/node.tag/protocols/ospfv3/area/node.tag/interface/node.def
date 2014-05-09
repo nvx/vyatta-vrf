@@ -10,5 +10,5 @@ delete: sudo /usr/bin/vtysh -x /var/run/quagga-$VAR(../../../../@) \
 	   -c "configure terminal" -c "router ospf6" \
            -c "no interface $VAR(@) area $VAR(../@)"
 
-allowed: sudo /sbin/ip netns exec $VAR(../../../../@) \
+allowed: sudo /sbin/ip netns exec ${COMP_WORDS[$(expr $COMP_CWORD - 6)]} \
 	${vyatta_sbindir}/vyatta-interfaces.pl --show all

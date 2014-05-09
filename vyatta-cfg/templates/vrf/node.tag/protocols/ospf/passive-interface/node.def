@@ -1,7 +1,7 @@
 multi:
 type: txt
 help: Suppress routing updates on an interface
-allowed: sudo /sbin/ip netns exec $VAR(../../../@) \
+allowed: sudo /sbin/ip netns exec ${COMP_WORDS[$(expr $COMP_CWORD - 4)]}  \
 	${vyatta_sbindir}/vyatta-interfaces.pl --show all && echo default
 val_help:<interface>; Interface to be passive (i.e. suppress routing updates)
 val_help:default; Default to suppress routing updates on all interfaces

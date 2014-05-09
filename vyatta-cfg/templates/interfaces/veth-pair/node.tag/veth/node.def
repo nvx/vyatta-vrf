@@ -1,7 +1,8 @@
 tag:
+allowed: echo "${COMP_WORDS[$(expr $COMP_CWORD - 2)]}a  ${COMP_WORDS[$(expr $COMP_CWORD - 2)]}b"
 type: txt
 help: Virtual internet peer interface configuration
 val_help: <vethN(a|b)>; veth interface name
 
-syntax:expression: pattern $VAR(@) "^$VAR(../@)(a|b)$" \
+syntax:expression: pattern $VAR(@) "^veth[0-9]+(a|b)$" \
 		; "interface veth $VAR(@): not a valid name, must be one of $VAR(../@)a or $VAR(../@)b"

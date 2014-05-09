@@ -1,5 +1,7 @@
 tag:
 priority: 319
+allowed: sudo /sbin/ip netns exec ${COMP_WORDS[$(expr $COMP_CWORD - 3)]} \
+		/opt/vyatta/sbin/vyatta-interfaces.pl --show=vethernet
 type: txt
 help: Virtual ethernet pair interface
 val_help: <vethNx>; Virtual ethernet interface name

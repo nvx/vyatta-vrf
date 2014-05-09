@@ -1,6 +1,6 @@
 type: txt
 help: Incoming packet redirection destination
-allowed: sudo /sbin/ip netns exec $VAR(../../../../@) /opt/vyatta/sbin/vyatta-interfaces.pl --show=input
+allowed: sudo /sbin/ip netns exec ${COMP_WORDS[$(expr $COMP_CWORD - 7)]} /opt/vyatta/sbin/vyatta-interfaces.pl --show=input
 
 syntax:expression: $VAR(@) != "$VAR(../../@).$VAR(../@)" ;\
 	 "interface $VAR(../../@).$VAR(../@): redirect to same interface not allowed"

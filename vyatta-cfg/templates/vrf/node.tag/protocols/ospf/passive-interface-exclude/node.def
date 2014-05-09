@@ -3,7 +3,7 @@ type: txt
 help: Interface to exclude when using 'passive-interface default'
 val_help:<interface>; Interface to exclude from 'passive-interface default'
 
-allowed: sudo /sbin/ip netns exec $VAR(../../../@) \
+allowed: sudo /sbin/ip netns exec ${COMP_WORDS[$(expr $COMP_CWORD - 4)]}  \
 	${vyatta_sbindir}/vyatta-interfaces.pl --show all 
 
 syntax:expression: $VAR(../passive-interface/@) == "default"; \

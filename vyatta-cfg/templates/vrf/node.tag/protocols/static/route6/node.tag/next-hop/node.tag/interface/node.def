@@ -4,6 +4,6 @@ help: Outgoing interface
 
 # show all current interface
 # but syntax accepts any interface since it may exist later (ppp etc)
-allowed: sudo /sbin/ip netns exec $VAR(../../../../../@) \
+allowed: sudo /sbin/ip netns exec ${COMP_WORDS[$(expr $COMP_CWORD - 8)]} \
 	${vyatta_sbindir}/vyatta-interfaces.pl --show all
 
