@@ -1,3 +1,9 @@
+vyatta-vrf (1.0.1) unstable; urgency=low
+
+  * Template fixes.
+
+ -- Tiernan Messmer <tiernan.messmer@gmail.com>  Sat, 10 May 2014 00:58:27 +1000
+
 vyatta-vrf (1.0.0) unstable; urgency=low
 
   * Initial release.
